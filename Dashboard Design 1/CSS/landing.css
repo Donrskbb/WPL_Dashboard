@@ -91,6 +91,8 @@ h3 {
     font-weight:900;
 }
 
+/* Classes */
+
 .h1-location {
     display: flex;
     justify-content: center;
@@ -106,6 +108,10 @@ h3 {
     transition: opacity 1s ease-in-out;
 }
 
+body.loaded .h1-location {
+    opacity: 1;
+    transform: translate(-50%, -80%);
+}
 
 .introduction {
     display: flex;
@@ -119,25 +125,9 @@ h3 {
     visibility: hidden;
 }
 
-body.loaded .h1-location {
-    opacity: 1;
-    transform: translate(-50%, -80%);
-}
-
 body.loaded .introduction {
     opacity: 1;
     animation: flyInFromBottom 0.5s ease-in-out 1.5s forwards;
-}
-
-@keyframes flyInFromBottom {
-    0% {
-        transform: translateY(150%);
-        visibility: visible;
-    }
-    100% {
-        transform: translateY(60%);
-        visibility: visible;
-    }
 }
 
 .base-layout {
@@ -189,4 +179,16 @@ body.loaded .introduction {
 
 .flyout-p {
     padding: 10px;
+}
+
+/* Key Frames */
+@keyframes flyInFromBottom {
+    0% {
+        transform: translateY(150%);
+        visibility: visible;
+    }
+    100% {
+        transform: translateY(60%);
+        visibility: visible;
+    }
 }
