@@ -1,0 +1,149 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:'Montserrat', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-weight:400;
+    color:#fff;
+    font-size:0.875em;
+    letter-spacing:0.063em;
+    background-image: linear-gradient(to right top, #6bd17f, #0ed0a7, #00cbca, #00c4e4, #30b9ef, #48bbf2, #5abdf5, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    font-weight:900;
+    font-size:3.25em;
+    margin-bottom:30px;
+    text-shadow:2px 3px 0px #898999;
+    line-height:1.2;
+    text-align: center;
+}
+
+h2 {
+    font-size:2rem;
+    letter-spacing:0.2px;
+    color:#1e1e1e;
+    margin-bottom:30px;
+    font-weight:900;
+}
+
+h3 {
+    text-shadow:2px 3px 0px rgba(150, 150, 150, 1);
+    line-height:1.2;
+    font-weight:900;
+}
+
+.h1-location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Optionally set a height for vertical centering */
+    text-align: center; /* To center the text horizontally */
+    opacity: 1;
+    transition: transform 0.5s ease-in-out;
+}
+
+.introduction {
+    /* Responsive Option */
+    width: 100%;
+    flex-wrap: wrap;
+
+    /* Base settings */
+    display: flex;
+    justify-content: center;
+    border-radius: 0 0 5px 5px;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    visibility: hidden;
+}
+
+.h1-location {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+body.loaded .h1-location {
+    opacity: 1;
+    transform: translate(-50%, -80%);
+}
+
+body.loaded .introduction {
+    opacity: 1;
+    animation: flyInFromBottom 0.5s ease-in-out 1.5s forwards;
+    
+}
+
+@keyframes flyInFromBottom {
+    0% {
+        transform: translateY(150%);
+        visibility: visible;
+    }
+    100% {
+        transform: translateY(60%);
+        visibility: visible;
+    }
+}
+
+.base-layout {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    background-color: #f1f1f1;
+    margin: 0 10px;
+
+    border-radius: 25px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.base-layout-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-color: rgba(150, 150, 150, 0.8);
+    color: black;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px 10px 0 0;
+}
+
+.base-layout:hover .base-layout-overlay {
+    transform: translateY(0);
+}
+ 
+.logo {
+    max-width: 100%;
+    height: auto;
+    margin: 20px;
+}
+
+.flyout-title {
+    background-color: rgba(128, 128, 128, 0.8);
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.flyout-btn {
+    padding: 10px;
+}
+
+.flyout-p {
+    padding: 10px;
+}
