@@ -19,6 +19,55 @@ body {
     background-size: cover;
 }
 
+a {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    color: white;
+}
+
+a::before,
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+a::before {
+    background-color: #d65454;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+a::after {
+    content: attr(data-replace);
+    height: 100%;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #d65454;
+}
+
+a:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}
+a:hover::after {
+    transform: translate3d(0, 0, 0);
+}
+
+a span {
+    display: inline-block;
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:hover span {
+    transform: translate3d(-200%, 0, 0);
+}
+
 h1 {
     font-weight:900;
     font-size:3.25em;
@@ -46,33 +95,28 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Optionally set a height for vertical centering */
-    text-align: center; /* To center the text horizontally */
-    opacity: 1;
-    transition: transform 0.5s ease-in-out;
+    text-align: center;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 100vh;
+
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-.introduction {
-    /* Responsive Option */
-    width: 100%;
-    flex-wrap: wrap;
 
-    /* Base settings */
+.introduction {
     display: flex;
     justify-content: center;
+    align-items: center;
+
     border-radius: 0 0 5px 5px;
     width: 1200px;
     margin: 0 auto;
     padding: 20px 0;
     visibility: hidden;
-}
-
-.h1-location {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
 }
 
 body.loaded .h1-location {
@@ -83,7 +127,6 @@ body.loaded .h1-location {
 body.loaded .introduction {
     opacity: 1;
     animation: flyInFromBottom 0.5s ease-in-out 1.5s forwards;
-    
 }
 
 @keyframes flyInFromBottom {
@@ -127,7 +170,7 @@ body.loaded .introduction {
 .base-layout:hover .base-layout-overlay {
     transform: translateY(0);
 }
- 
+
 .logo {
     max-width: 100%;
     height: auto;
